@@ -36,18 +36,16 @@ export default defineConfig(({ command, mode }) => {
       target: 'es2020',
       polyfillModulePreload: false,
       assetsInlineLimit: 800,
+      rollupOptions: {
+        output: {
+          inlineDynamicImports: true,
+          manualChunks: undefined,
+          assetFileNames: `assets/[name].[ext]`
+        },
+      }
     };
     // @ts-ignore
     config.plugins = [typescriptPlugin(), closurePlugin(), roadrollerPlugin(), ectPlugin()];
-
-    // @ts-ignore
-    config.build.rollupOptions = {
-      output: {
-        inlineDynamicImports: true,
-        manualChunks: undefined,
-        assetFileNames: `assets/[name].[ext]`
-      },
-    }
   }
 
   return config;
@@ -195,7 +193,7 @@ function ectPlugin(): Plugin {
     writeBundle: async (): Promise<void> => {
       try {
         const files = await fs.readdir('dist/assets');
-        const assetFiles = files.filter(file => !file.includes('.js')).map(file => 'dist/assets/' + file);
+        const assetFiles = files.filter(file => !file.includes('.js') && !file.includes('.css')).map(file => 'dist/assets/' + file);
         const args = ['-strip', '-zip', '-10009', 'dist/index.html', ...assetFiles];
         const result = execFileSync(ect, args);
         console.log('ECT result', result.toString().trim());
