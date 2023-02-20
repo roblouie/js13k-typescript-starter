@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <head>
     <meta charset="UTF-8">
-    <title>TypeScript Template</title>
+    <title>JS13K TS</title>
     <style>
-        #c {
-            width: 100vw;
-            outline: 0;
+        #c2d {
+            width: min(100vw, calc(100vh * 16/9));
+            position: absolute;
             image-rendering: pixelated; /* You definitely want this if you are doing pixel art */
         }
 
@@ -18,18 +18,11 @@
             align-items: center;
             height: 100%;
         }
-
-        /* Input whatever aspect ratio you use here */
-        @media (min-aspect-ratio: 16/9) {
-            #c {
-                height: 100vh;
-                width: auto;
-            }
-        }
     </style>
 </head>
 <html>
 <body>
-    <canvas id="c" width="1280" height="720"></canvas>
+    <canvas id="c2d" width="1920" height="1080"></canvas>
+    <script type="module" src="/src/index.ts"></script>
 </body>
 </html>
