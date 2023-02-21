@@ -5,13 +5,13 @@ import { gameStateMachine } from '@/game-state-machine';
 import { menuState } from '@/game-states/menu.state';
 
 class GameState implements State {
-  image = new Image();
+  ballImage = new Image();
   ballSize = 100;
   ballPosition = new DOMPoint(100, 100);
   ballVelocity = new DOMPoint(10, 10);
 
   constructor() {
-    this.image.src = 'ball.png'; // all assets will end up flat in the final zip to save space, so no path on any asset
+    this.ballImage.src = 'ball.png';
   }
 
   // Make sure ball starts at the same spot when game is entered
@@ -21,22 +21,29 @@ class GameState implements State {
   }
 
   onUpdate() {
-    this.ballPosition.x += this.ballVelocity.x;
-    this.ballPosition.y += this.ballVelocity.y
+    // Update velocity from controller
+    this.ballVelocity.x += controls.inputDirection.x;
+    this.ballVelocity.y += controls.inputDirection.y;
 
-    if (this.ballPosition.x + this.ballSize > drawEngine.width || this.ballPosition.x <= 0) {
+    // Check collisions with edges of map
+    if (this.ballPosition.x + this.ballSize > drawEngine.canvasWidth || this.ballPosition.x <= 0) {
       this.ballVelocity.x *= -1;
     }
 
-    if (this.ballPosition.y + this.ballSize > drawEngine.height || this.ballPosition.y <= 0) {
+    if (this.ballPosition.y + this.ballSize > drawEngine.canvasHeight || this.ballPosition.y <= 0) {
       this.ballVelocity.y *= -1;
     }
 
+    this.ballPosition.x += this.ballVelocity.x;
+    this.ballPosition.y += this.ballVelocity.y;
+
+    // Apply Drag
+    this.ballVelocity.x *= 0.99;
+    this.ballVelocity.y *= 0.99;
+
     drawEngine.context.fillStyle = 'blue';
-    drawEngine.context.fillRect(0, 0, drawEngine.width, drawEngine.height);
-    drawEngine.context.drawImage(this.image, this.ballPosition.x, this.ballPosition.y, this.ballSize, this.ballSize);
-
-
+    drawEngine.context.fillRect(0, 0, drawEngine.canvasWidth, drawEngine.canvasHeight);
+    drawEngine.context.drawImage(this.ballImage, this.ballPosition.x, this.ballPosition.y, this.ballSize, this.ballSize);
 
     if (controls.isEscape) {
       gameStateMachine.setState(menuState);
