@@ -13,8 +13,7 @@ Install dependencies: `npm install`
 Run Server: `npm run serve`
 
 ## Project Details
-While the running code is purposely minimal, allowing you to build whatever game you'd like, it does come with some
-basic helpful game related code:
+While the running code is purposely minimal, it does come with some basic helpful game related code:
 
 ####Simple State Machine 
 Easily manage multiple states, run setup and teardown code when switching, and pass variables
