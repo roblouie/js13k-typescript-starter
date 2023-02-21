@@ -26,8 +26,8 @@ The main canvas will always fill as much of the screen as it can while maintaini
 #### Locked 60 FPS by Default
 A surprising number of games are unplayable each year when they run at 2x (or more)
   the intended speed. Screens with a refresh rate higher than 60hz are very common. For easy consistency,
-  the framerate is locked at 60. However, the game state does take in a timestamp argument, so this could instead be
-  used to update your physics with an interval so you could unlock the framerate.
+  the framerate is locked at 60. However, the game state does take in an interval argument, so this could instead be
+  used to update your physics so you could unlock the framerate.
 
 #### Controls Wrapper with Controller Support
 Play with a keyboard or connect a controller to play. Includes button mapping for Xbox controllers and support for analog deadzone.
