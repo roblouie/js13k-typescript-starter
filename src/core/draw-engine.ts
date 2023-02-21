@@ -1,23 +1,16 @@
 class DrawEngine {
-  private _context?: CanvasRenderingContext2D | null;
+  context: CanvasRenderingContext2D;
 
-  get context(): CanvasRenderingContext2D {
-    if (!this._context) {
-      throw new Error('must call initializeDrawEngine first');
-    }
-    return this._context;
+  constructor() {
+    this.context = c2d.getContext('2d');
   }
 
-  get width() {
+  get canvasWidth() {
     return this.context.canvas.width;
   }
 
-  get height() {
+  get canvasHeight() {
     return this.context.canvas.height;
-  }
-
-  initialize(canvas: HTMLCanvasElement) {
-    this._context = canvas.getContext('2d');
   }
 
   drawText(text: string, fontSize: number, x: number, y: number, color = 'white', textAlign: 'center' | 'left' | 'right' = 'center') {

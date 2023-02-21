@@ -33,7 +33,11 @@ module.exports = {
     'linebreak-style': 0,
     'function-paren-newline': 'off',
     'unused-imports/no-unused-imports': 'warn',
-    'id-denylist': ['warn', 'seed', 'direction', 'clone', 'normalize', 'setAttribute', 'done', 'all', 'translate', 'scale', 'rotate', 'position', 'rotation', 'children', 'parent', 'remove', 'setRotation', 'textureRepeat', 'load'],
+    'id-denylist': [
+      'warn', 'seed', 'direction', 'clone', 'normalize', 'setAttribute', 'done', 'all', 'translate', 'scale', 'rotate',
+      'position', 'rotation', 'children', 'parent', 'remove', 'setRotation', 'textureRepeat', 'load', 'image',
+      'width', 'height',
+    ],
     'unused-imports/no-unused-vars': [
       'warn',
       {

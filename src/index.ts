@@ -5,8 +5,6 @@ import { controls } from '@/core/controls';
 
 createGameStateMachine(menuState);
 
-drawEngine.initialize(c2d);
-
 let previousTime = 0;
 const interval = 1000 / 60;
 
@@ -17,7 +15,7 @@ const interval = 1000 / 60;
     previousTime = currentTime - (delta % interval);
 
     controls.queryController();
-    drawEngine.context.clearRect(0, 0, drawEngine.width, drawEngine.height);
+    drawEngine.context.clearRect(0, 0, drawEngine.canvasWidth, drawEngine.canvasHeight);
     gameStateMachine.getState().onUpdate(currentTime);
   }
   requestAnimationFrame(draw);

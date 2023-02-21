@@ -30,17 +30,19 @@ export default defineConfig(({ command, mode }) => {
     // @ts-ignore
     config.esbuild = false;
     // @ts-ignore
-
+    config.base = '';
+    // @ts-ignore
     config.build = {
       minify: false,
       target: 'es2020',
-      polyfillModulePreload: false,
+      modulePreload: { polyfill: false },
       assetsInlineLimit: 800,
+      assetsDir: '',
       rollupOptions: {
         output: {
           inlineDynamicImports: true,
           manualChunks: undefined,
-          assetFileNames: `assets/[name].[ext]`
+          assetFileNames: `[name].[ext]`
         },
       }
     };
@@ -192,8 +194,10 @@ function ectPlugin(): Plugin {
     name: 'vite:ect',
     writeBundle: async (): Promise<void> => {
       try {
-        const files = await fs.readdir('dist/assets');
-        const assetFiles = files.filter(file => !file.includes('.js') && !file.includes('.css')).map(file => 'dist/assets/' + file);
+        const files = await fs.readdir('dist/');
+        const assetFiles = files.filter(file => {
+          return !file.includes('.js') && !file.includes('.css') && !file.includes('.html') && !file.includes('.zip') && file !== 'assets';
+        }).map(file => 'dist/' + file);
         const args = ['-strip', '-zip', '-10009', 'dist/index.html', ...assetFiles];
         const result = execFileSync(ect, args);
         console.log('ECT result', result.toString().trim());
