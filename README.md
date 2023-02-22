@@ -60,8 +60,8 @@ The regular build process runs RoadRollers regular build. It spends a couple min
 then compresses your code. This means every build takes 2+ minutes, and it doesn't really have time to find
 the best compression config. This is why I have added two scripts: 
 
-`npm run find-best-roadroller`: Will ask you how many seconds to search for a better config. Beyond 10 minutes you'll 
-get diminishing returns for sure, but will run as long as you tell it and save the config to `./roadroller-config.json`.
+`npm run find-best-roadroller`: Will ask you how many seconds to search for a better config. It will run as long as you tell it, 
+or until it runs out of room in the buffer, and save the config to `./roadroller-config.json`.
 
 `npm run build-with-best-roadroller`: Runs the same build process as the regular build, except it tells RoadRoller to
 use the config from `./roadroller-config.json`. Not only will this save you a decent amount of space 
