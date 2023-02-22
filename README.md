@@ -1,6 +1,6 @@
 # JS13K TypeScript Starter
 
-This starter kit is designed to have a powerful but easy-to-use build process allowing you to focus on building your
+This starter kit is designed to have a powerful but easy to use build process allowing you to focus on building your
 game rather than how to shrink it. 
 
 Included demo code lets you navigate a menu and launch into a simple interactive
