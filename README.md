@@ -82,7 +82,7 @@ It does this to try to prevent bugs in the minified code. It sees something like
 and thinks you might be wanting to use those properties to set css, modify a canvas, or access element children. Even if
 you provide type information and never use these properties in that way, the minifiers are not smart enough to know this.
 
-To avoid lots of unminified property names in your code, avoid using these reserved words. This eslint setting will help
+To avoid lots of unminified property names in your code, avoid using these reserved words (unless of course you are doing the thing they are reserved for). This eslint setting will help
 you find any. It is not an exhaustive list however, and it's worth checking `dist/output.js` occasionally for non-minified
 properties.
 
