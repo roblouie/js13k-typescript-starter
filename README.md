@@ -28,21 +28,21 @@ While the running code is purposely minimal, allowing you to build whatever game
 basic helpful game related code:
 
 
-#### Simple State Machine 
+### Simple State Machine 
 Easily manage multiple states, run setup and teardown code when switching, and pass variables
   to states on change. Used in the included demo to switch from the menu to a level, but useful for enemy states, player states, etc.
 
-#### Responsive Fullscreen
+### Responsive Fullscreen
 The main canvas will always fill as much of the screen as it can while maintaining a 16:9
   aspect ratio. There is also a fullscreen toggle on the menu to go completely fullscreen.
 
-#### Locked 60 FPS by Default
+### Locked 60 FPS by Default
 A surprising number of games are unplayable each year when they run at 2x (or more)
   the intended speed. Screens with a refresh rate higher than 60hz are very common. For easy consistency,
   the framerate is locked at 60. However, the game state does take in an interval argument, so this could instead be
   used to update your physics with an interval, allowing you to unlock the framerate.
 
-#### Controls Wrapper with Controller Support
+### Controls Wrapper with Controller Support
 Play with a keyboard or connect a controller to play. Includes button mapping for Xbox controllers and support for analog deadzone.
 
 ## Starter Kit Build Features
