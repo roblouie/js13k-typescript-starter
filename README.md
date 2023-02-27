@@ -1,10 +1,18 @@
 # JS13K TypeScript Starter
 
-This starter kit is designed to have a powerful but easy to use build process allowing you to focus on building your
-game rather than how to shrink it. 
+**This starter kit is designed to have a powerful but easy-to-use build process allowing you to focus on building your
+game rather than how to shrink it.**
 
-Included demo code lets you navigate a menu and launch into a simple interactive
-screen where you can move a basketball around.
+## Features
+JS13k TypeScript Starter does the following for you automatically:
+
+* Minifies your code with [Google Closure Compiler](https://developers.google.com/closure/compiler)
+* Minifies your HTML and CSS
+* Compresses all the above with [RoadRoller](https://github.com/lifthrasiir/roadroller) (see [RoadRoller wiki](https://github.com/lifthrasiir/roadroller/wiki) for details)
+* Compresses the RoadRollered `index.html` file and any additional assets (images, etc) with [ECT](https://github.com/fhanau/Efficient-Compression-Tool)
+
+If you want to use WebGL, [use the WebGL version.](https://github.com/roblouie/js13k-typescript-starter-webgl)
+
 
 ## Quick Start
 
@@ -13,7 +21,12 @@ Install dependencies: `npm install`
 Run Server: `npm run serve`
 
 ## Project Details
-While the running code is purposely minimal, it does come with some basic helpful game related code:
+Included demo code lets you navigate a menu and launch into a simple interactive
+screen where you can move a basketball around while simple WebGL shaders change the background.
+
+While the running code is purposely minimal, allowing you to build whatever game you'd like, it does come with some
+basic helpful game related code:
+
 
 #### Simple State Machine 
 Easily manage multiple states, run setup and teardown code when switching, and pass variables
@@ -27,7 +40,7 @@ The main canvas will always fill as much of the screen as it can while maintaini
 A surprising number of games are unplayable each year when they run at 2x (or more)
   the intended speed. Screens with a refresh rate higher than 60hz are very common. For easy consistency,
   the framerate is locked at 60. However, the game state does take in an interval argument, so this could instead be
-  used to update your physics so you could unlock the framerate.
+  used to update your physics with an interval, allowing you to unlock the framerate.
 
 #### Controls Wrapper with Controller Support
 Play with a keyboard or connect a controller to play. Includes button mapping for Xbox controllers and support for analog deadzone.
