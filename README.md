@@ -98,10 +98,3 @@ you provide type information and never use these properties in that way, the min
 To avoid lots of unminified property names in your code, avoid using these reserved words (unless of course you are doing the thing they are reserved for). This eslint setting will help
 you find any. It is not an exhaustive list however, and it's worth checking `dist/output.js` occasionally for non-minified
 properties.
-
-## Technologies Used
-* [TypeScript](https://www.typescriptlang.org/)
-* [Vite](https://vitejs.dev/)
-* [Google Closure Compiler](https://developers.google.com/closure/compiler) for minification
-* [Roadroller](https://github.com/lifthrasiir/roadroller) ([wiki](https://github.com/lifthrasiir/roadroller/wiki)) for code compression
-* [ECT](https://github.com/fhanau/Efficient-Compression-Tool) for Zipping
