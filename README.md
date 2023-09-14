@@ -22,7 +22,7 @@ Run Server: `npm run serve`
 
 ## Project Details
 Included demo code lets you navigate a menu and launch into a simple interactive
-screen where you can move a basketball around while simple WebGL shaders change the background.
+screen where you can move a basketball around.
 
 While the running code is purposely minimal, allowing you to build whatever game you'd like, it does come with some
 basic helpful game related code:
