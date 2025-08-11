@@ -6,7 +6,7 @@ game rather than how to shrink it.**
 ## Features
 JS13k TypeScript Starter does the following for you automatically:
 
-* Minifies your code with [Google Closure Compiler](https://developers.google.com/closure/compiler)
+* Minifies your code with [Terser](https://github.com/terser/terser)
 * Minifies your HTML and CSS
 * Compresses all the above with [RoadRoller](https://github.com/lifthrasiir/roadroller) (see [RoadRoller wiki](https://github.com/lifthrasiir/roadroller/wiki) for details)
 * Compresses the RoadRollered `index.html` file and any additional assets (images, etc) with [ECT](https://github.com/fhanau/Efficient-Compression-Tool)
@@ -53,8 +53,8 @@ While developing, simply use `npm run serve` to start a server and get hot modul
 For building, `npm run build`:
 * Minifies your html file and embeds css
 * Strips html/css from your html and prepends your transpiled js code with a `document.write` call that writes your html and css.
-* Runs google closure compiler on your code
-* Runs RoadRoller on the closure minified code
+* Runs Terser on your code
+* Runs RoadRoller on the Terser minified code
 * Creates `dist/index.html` with only a script tag and the RoadRollered JS
 * Any external assets (images, data files, etc) are also copied to `dist/`
 * Zips everything up and places it in `dist/index.zip`
@@ -63,7 +63,7 @@ For building, `npm run build`:
 ```
 dist/
   index.html   <-- Final index.html file here for easy testing without unzipping
-  output.js    <-- Closure minified. Not used anywhere but useful for debugging minification
+  output.js    <-- Terser minified. Not used anywhere but useful for debugging minification
   ball.png     <-- Any assets are copied from to the root of dist for smaller size
   index.zip    <-- Final zipped file with index.html and any other asset files.
 ```
