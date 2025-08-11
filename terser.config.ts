@@ -1,5 +1,5 @@
 import {Terser} from "vite";
-import ECMA = Terser.ECMA;
+import { ECMA } from 'terser';
 
 export const defaultTerserOptions: Terser.MinifyOptions = {
   // Use when minifying an ES6 module.

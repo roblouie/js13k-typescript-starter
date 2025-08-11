@@ -6,11 +6,10 @@ import { OutputAsset, OutputChunk } from 'rollup';
 import { Input, InputAction, InputType, Packer } from 'roadroller';
 import CleanCSS from 'clean-css';
 import { statSync } from 'fs';
-const { execFileSync } = require('child_process');
 import ect from 'ect-bin';
 import {defaultTerserOptions} from "./terser.config";
-
-const htmlMinify = require('html-minifier');
+import {execFileSync} from "child_process";
+import htmlMinify from "html-minifier";
 
 export default defineConfig(({ command, mode }) => {
   const config = {
@@ -57,8 +56,8 @@ function roadrollerPlugin(): Plugin {
   return {
     name: 'vite:roadroller',
     transformIndexHtml: {
-      enforce: 'post',
-      transform: async (html: string, ctx?: IndexHtmlTransformContext): Promise<string> => {
+      order: 'post',
+      handler: async (html: string, ctx?: IndexHtmlTransformContext): Promise<string> => {
         // Only use this plugin during build
         if (!ctx || !ctx.bundle) {
           return html;
