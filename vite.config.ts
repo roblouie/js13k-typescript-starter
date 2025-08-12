@@ -21,7 +21,7 @@ export default defineConfig(({ command, mode }) => {
         '@': path.resolve(__dirname, './src'),
       }
     },
-    plugins: undefined
+    plugins: [typescriptPlugin()]
   };
 
   if (command === 'build') {
